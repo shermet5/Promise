@@ -53,7 +53,7 @@ function makePromiseResolveWith3(){
    * EX 2
   
   function consumePromise(promise, consumer, handler){
-    promise.then(response => consumer(handler(el)));
+    promise.then(response => consumer(handler(response)));
   }
  
   module.exports = {
