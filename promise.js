@@ -40,7 +40,6 @@ function makePromiseResolveWith3(){
   
   
 //   PART 2
-//   (focus on using .then, .catch, .finally, .etc)
   
    // EX 1
     @param {Promise} promise
@@ -52,11 +51,7 @@ function makePromiseResolveWith3(){
   /**
    * 
    * EX 2
-   * 
-   * @param {Promise} promise 
-   * @param {consumer} consumer 
-   * @param {handler} handler 
-   */
+  
   function consumePromise(promise, consumer, handler){
     promise.then(response => consumer(handler(el)));
   }
