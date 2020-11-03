@@ -38,13 +38,13 @@ function makePromiseResolveWith3(){
     @param {thunk} action
     
   function waitForPromise(promise, action){
-    promise.then(action);
+    promise.then(action).catch(action);
   }
   //
    EX 2
   
   function consumePromise(promise, consumer, handler){
-    promise.then(response => consumer(handler(response)));
+    promise.then(response => consumer(handler(response))).catch(response => consumer(handler(response)));
   }
  
   module.exports = {
