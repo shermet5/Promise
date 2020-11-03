@@ -31,14 +31,6 @@ function makePromiseResolveWith3(){
     return new Promise((resolve) => {setTimeout(() => {resolve(value)}, delayInMs)})
   }
   
-  module.exports = {
-    makePromiseResolveWith3,
-    makePromiseRejectWithBoo,
-    makePromiseWithConstructor,
-    makeDelayPromise,
-  };
-  
-  
 //   PART 2
   
    // EX 1
@@ -48,15 +40,18 @@ function makePromiseResolveWith3(){
   function waitForPromise(promise, action){
     promise.then(action);
   }
-  /**
-   * 
-   * EX 2
+  //
+   EX 2
   
   function consumePromise(promise, consumer, handler){
     promise.then(response => consumer(handler(response)));
   }
  
   module.exports = {
+   makePromiseResolveWith3,
+    makePromiseRejectWithBoo,
+    makePromiseWithConstructor,
+    makeDelayPromise,
     waitForPromise,
     consumePromise,
   };
