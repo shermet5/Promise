@@ -1,0 +1,75 @@
+ FAIL  ./promises.spec.js
+  Promises
+    Promises
+      ✓ makePromiseResolveWith3 should create Promise with resolved 3  (2 ms)
+      ✓ makePromiseRejectWithBoo should create Promise with rejected string "Boo"
+      ✓ makeDelayPromise should returns Promise resolved with a provided value after the provided delay (3005 ms)
+      makePromiseWithConstructor should return a Promise
+        ✓ should resolves if "itShouldResolve" is true  (1 ms)
+        ✓ should rejects if "itShouldResolve" is false
+      waitForPromise should call an action after the promise completion
+        ✓ if promise resolves (1 ms)
+        ✕ if promise rejects (2 ms)
+      consumePromise should call a consumer with handled value after the promise completion
+        ✕ resolved value should be handled by handler before passed to consumer
+        ✕ rejected value should be handled by handler before passed to consumer (1 ms)
+
+  ● Promises › Promises › waitForPromise should call an action after the promise completion › if promise rejects
+
+    expect(jest.fn()).toHaveBeenCalled()
+
+    Expected number of calls: >= 1
+    Received number of calls:    0
+
+      61 |         const action = jest.fn();
+      62 |         await items['waitForPromise'](items['makePromiseWithConstructor'](false), action);
+    > 63 |         expect(action).toHaveBeenCalled();
+         |                        ^
+      64 |       });
+      65 |     });
+      66 |
+
+      at Object.<anonymous> (promises.spec.js:63:24)
+
+  ● Promises › Promises › consumePromise should call a consumer with handled value after the promise completion › resolved value should be handled by handler before passed to consumer
+
+    expect(jest.fn()).toHaveBeenCalled()
+
+    Expected number of calls: >= 1
+    Received number of calls:    0
+
+      73 |         await items['consumePromise'](Promise.resolve(), mockConsumer, mockHandler)
+      74 |
+    > 75 |         expect(mockHandler).toHaveBeenCalled();
+         |                             ^
+      76 |         expect(mockConsumer).toHaveBeenCalledWith('handled');
+      77 |       })
+      78 |       it('rejected value should be handled by handler before passed to consumer', async () => {
+
+      at Object.<anonymous> (promises.spec.js:75:29)
+
+  ● Promises › Promises › consumePromise should call a consumer with handled value after the promise completion › rejected value should be handled by handler before passed to consumer
+
+    expect(jest.fn()).toHaveBeenCalled()
+
+    Expected number of calls: >= 1
+    Received number of calls:    0
+
+      82 |
+      83 |         await items['consumePromise'](Promise.reject(), mockConsumer, mockHandler);
+    > 84 |         expect(mockHandler).toHaveBeenCalled();
+         |                             ^
+      85 |         expect(mockConsumer).toHaveBeenCalledWith('handled');
+      86 |       })
+      87 |     });
+
+      at Object.<anonymous> (promises.spec.js:84:29)
+
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 6 passed, 9 total
+Snapshots:   0 total
+Time:        4.06 s
+Ran all test suites matching /promises.spec.js/i.
+npm ERR! Test failed.  See above for more details.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+~/Development/ISG_Labs/UT »
